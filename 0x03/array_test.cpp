@@ -2,22 +2,6 @@
 using namespace std;
 
 void insert(int idx, int num, int arr[], int& len){
-//     len = len + 1;
-//    int arr2[len];
-//     for (int i = 0; i < len; i++) {
-//         if (i < idx) { //0, 1, 2
-//             arr2[i] = arr[i];
-//         } else if (i == idx) { // new
-//             arr2[i] = num;
-//         } else { //3, 4, 5
-//             arr2[i] = arr[i - 1]; 
-//         }
-//     }
-
-//     for (int i = 0; i < len; i++) {
-//         arr[i] = arr2[i];
-//     }
-
     for (int i = len; i > idx; i--) {
         arr[i] = arr[i-1];
     }
@@ -26,18 +10,9 @@ void insert(int idx, int num, int arr[], int& len){
 }
 
 void erase(int idx, int arr[], int& len){
-    len = len - 1;
-    int arr2[len];
-    for (int i = 0; i < len; i++) {
-        if (i < idx) {
-            arr2[i] = arr[i];
-        } else if (i>=idx) {
-            arr2[i] = arr[i + 1];
-        }
-    }
-
-    for (int i = 0; i < len; i++) {
-        arr[i] = arr2[i];
+    len--;
+    for (int i = idx; i < len; i++) {
+        arr[i] = arr[i+1];
     }
 }
 
