@@ -7,11 +7,16 @@ int unused = 1;
 
 void insert(int addr, int num){
     dat[unused] = num;
-    pre[unused - 1]
+    pre[unused] = addr;
+    nxt[unused] = nxt[addr];
+    if (nxt[addr] != -1) pre[nxt[addr]] = unused;
+    nxt[addr] = unused;
+    unused++;
 }
 
 void erase(int addr){
-
+  nxt[pre[addr]] = nxt[addr];
+  if(nxt[addr] != -1) pre[nxt[addr]] = pre[addr];
 }
 
 void traverse(){
